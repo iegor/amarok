@@ -1,5 +1,17 @@
-AUTOMAKE_OPTIONS = foreign 1.5
+SUBDIRS = \
+    src
 
-include admin/deps.am
-include admin/Doxyfile.am
-SUBDIRS=$(TOPSUBDIRS)
+EXTRA_DIST = \
+    AUTHORS \
+    COPYING \
+    ChangeLog \
+    INSTALL \
+    README \
+    TODO \
+    admin \
+    amarok.kdevprj \
+    amarok.lsm
+
+AUTOMAKE_OPTIONS = \
+    foreign
+
