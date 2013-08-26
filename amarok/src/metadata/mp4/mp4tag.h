@@ -147,8 +147,8 @@ namespace TagLib {
                  * Returns whether this is part of a compilation; if this flag is not set,
                  * this will return the Undefined constant.
                  */
-                virtual int compilation() const {
-									return (int)m_tags->compilation;
+                virtual uint compilation() const {
+									return (uint)*(m_tags->compilation);
 								}
 
                 /*!
@@ -173,7 +173,7 @@ namespace TagLib {
                  */
                 virtual void setAlbum(const String &s) {
 									MP4TagsSetAlbum(m_tags, s.toCString());
-								} 
+								}
 
                 /*!
                  * Sets the album to \a s.  If \a s is String::null then this value will be
