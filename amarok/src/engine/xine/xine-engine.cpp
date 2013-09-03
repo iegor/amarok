@@ -419,7 +419,7 @@ XineEngine::unpause()
 {
     if ( !m_stream )
         return;
-    
+
     if( xine_get_param( m_stream, XINE_PARAM_SPEED ) == XINE_SPEED_PAUSE )
     {
         if( s_fader && s_fader->running() )
@@ -463,7 +463,7 @@ XineEngine::position() const
         if( time > tmp ) break;
         usleep( 100000 );
     }
-			
+
     // Here we check for new metadata periodically, because xine does not emit an event
     // in all cases (e.g. with ogg streams). See BUG 122505
     if ( state() != Engine::Idle && state() != Engine::Empty )
@@ -501,7 +501,7 @@ XineEngine::length() const
         xine_get_pos_length( m_stream, &pos, &time, &length );
         if( length < 0 )
             length=0;
-	    	
+
         return length;
     }
 }
@@ -865,7 +865,7 @@ XineEngine::playlistChanged()
 {
     #ifdef XINE_PARAM_EARLY_FINISHED_EVENT
     #ifdef XINE_PARAM_GAPLESS_SWITCH
-    if ( xine_check_version(1,1,1) && !(m_xfadeLength > 0) 
+    if ( xine_check_version(1,1,1) && !(m_xfadeLength > 0)
          && m_url.isLocalFile() && Playlist::instance()->isTrackAfter() )
     {
         xine_set_param(m_stream, XINE_PARAM_EARLY_FINISHED_EVENT, 1 );
@@ -974,11 +974,11 @@ XineEngine::XineEventListener( void *p, const xine_event_t* xineEvent )
         case XINE_MSG_UNKNOWN_HOST:
             message = i18n("The host is unknown for the URL: <i>%1</i>"); goto param;
         case XINE_MSG_UNKNOWN_DEVICE:
-            message = i18n("The device name you specified seems invalid."); goto param;
+            message = i18n("The device name you specified seems invalid.<br>%1"); goto param;
         case XINE_MSG_NETWORK_UNREACHABLE:
-            message = i18n("The network appears unreachable."); goto param;
+            message = i18n("The network appears unreachable.<br>%1"); goto param;
         case XINE_MSG_AUDIO_OUT_UNAVAILABLE:
-            message = i18n("Audio output unavailable; the device is busy."); goto param;
+            message = i18n("Audio output unavailable; the device is busy.<br>%1"); goto param;
         case XINE_MSG_CONNECTION_REFUSED:
             message = i18n("The connection was refused for the URL: <i>%1</i>"); goto param;
         case XINE_MSG_FILE_NOT_FOUND:
@@ -988,7 +988,7 @@ XineEngine::XineEventListener( void *p, const xine_event_t* xineEvent )
         case XINE_MSG_READ_ERROR:
             message = i18n("The source cannot be read for the URL: <i>%1</i>"); goto param;
         case XINE_MSG_LIBRARY_LOAD_ERROR:
-            message = i18n("A problem occurred while loading a library or decoder."); goto param;
+            message = i18n("A problem occurred while loading a library or decoder.<br>%1"); goto param;
 
         case XINE_MSG_GENERAL_WARNING:
             message = i18n("General Warning"); goto explain;

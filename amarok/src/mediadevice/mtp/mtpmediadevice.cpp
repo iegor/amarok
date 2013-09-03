@@ -24,6 +24,8 @@
 
 #define DEBUG_PREFIX "MtpMediaDevice"
 
+#include <stdlib.h>
+
 #include <config.h>
 #include "mtpmediadevice.h"
 
