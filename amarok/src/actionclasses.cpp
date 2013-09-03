@@ -30,6 +30,8 @@
 #include <ktoolbarbutton.h>
 #include <kurl.h>
 
+extern KAboutData aboutData;
+
 namespace Amarok
 {
     bool repeatNone() { return AmarokConfig::repeat() == AmarokConfig::EnumRepeat::Off; }
@@ -171,8 +173,6 @@ Menu::instance()
 KPopupMenu*
 Menu::helpMenu( QWidget *parent ) //STATIC
 {
-    extern KAboutData aboutData;
-
     if ( s_helpMenu == 0 )
         s_helpMenu = new KHelpMenu( parent, &aboutData, Amarok::actionCollection() );
 
