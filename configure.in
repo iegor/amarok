@@ -40,12 +40,17 @@ dnl Perform program name transformation
 AC_ARG_PROGRAM
 
 dnl Automake doc recommends to do this only here. (Janos)
-AM_INIT_AUTOMAKE(multimedia, "3.5.9") dnl searches for some needed programs
+AM_INIT_AUTOMAKE(amarok, "3.5.10") dnl searches for some needed programs
 
 KDE_SET_PREFIX
 
 dnl generate the config header
 AM_CONFIG_HEADER(config.h) dnl at the distribution this done
+
+AC_PROG_CC
+AC_PROG_CXX
+AC_EXEEXT
+AC_OBJEXT
 
 dnl Checks for programs.
 AC_CHECK_COMPILERS
@@ -1057,7 +1062,7 @@ if test "$have_mp4v2" != "no"; then
     ac_cppflags_save=$CPPFLAGS
     CPPFLAGS="$CPPFLAGS -I."
     AC_CHECK_HEADERS(systems.h)
-    AC_CHECK_HEADERS([mp4.h], [have_mp4_h=yes], [],
+    AC_CHECK_HEADERS([mp4v2/mp4v2.h], [have_mp4_h=yes], [],
         [#ifdef HAVE_SYSTEMS_H
          # include <systems.h>
          #endif

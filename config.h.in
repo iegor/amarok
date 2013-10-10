@@ -103,8 +103,8 @@
 /* have mp4v2 */
 #undef HAVE_MP4V2
 
-/* Define to 1 if you have the <mp4.h> header file. */
-#undef HAVE_MP4_H
+/* Define to 1 if you have the <mp4v2/mp4v2.h> header file. */
+#undef HAVE_MP4V2_MP4V2_H
 
 /* have NMM */
 #undef HAVE_NMM
@@ -228,6 +228,9 @@
 
 /* Define to the one symbol short name of this package. */
 #undef PACKAGE_TARNAME
+
+/* Define to the home page for this package. */
+#undef PACKAGE_URL
 
 /* Define to the version of this package. */
 #undef PACKAGE_VERSION
